@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                echo '
+                echo 'Checkout application project change'
                 checkout([$class: 'GitSCM', branches: [[name: 'main']], userRemoteConfigs: [[credentialsId: 'jenkins-itself', url: 'https://github.com/Bill-EPAM-DevOpsLab2022-FinalProject/sample.software.git']]])
             }
         }
