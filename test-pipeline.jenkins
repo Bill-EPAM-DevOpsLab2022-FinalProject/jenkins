@@ -1,6 +1,12 @@
 pipeline {
     agent any
     stages {
+        stage('Checkout') {
+            steps {
+                echo '
+                checkout([$class: 'GitSCM', branches: [[name: 'main']], userRemoteConfigs: [[credentialsId: 'jenkins-itself', url: 'https://github.com/Bill-EPAM-DevOpsLab2022-FinalProject/sample.software.git']]])
+            }
+        }
         stage('Build') {
             steps {
                 echo 'Building..'
